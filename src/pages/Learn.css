@@ -1,0 +1,151 @@
+.learn-page {
+  position: relative;
+  padding: 100px 60px;
+  background: radial-gradient(circle at top left, #081c1a, #041010);
+  color: #f5f5f5;
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+}
+
+.orb1 {
+  width: 400px;
+  height: 400px;
+  background: #00ffa3;
+  top: -100px;
+  left: -100px;
+}
+
+.orb2 {
+  width: 350px;
+  height: 350px;
+  background: #ffd700;
+  bottom: -100px;
+  right: -100px;
+}
+
+.learn-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.learn-hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.learn-image-container img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(25px);
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 60px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.nutrition-layout {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.nutrition-sidebar {
+  width: 250px;
+}
+
+.nutrition-item {
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nutrition-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.nutrition-item.active {
+  background: linear-gradient(90deg, #00ffa3, #ffd700);
+  color: black;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.stat-bar {
+  margin-top: 20px;
+  height: 8px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+.stat-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffa3, #ffd700);
+  transition: 0.8s ease;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.fact-card {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 18px;
+  transition: 0.4s;
+}
+
+.fact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.quote-section {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.quote-content {
+  background: linear-gradient(90deg, #00ffa3, #ffd700);
+  padding: 50px;
+  border-radius: 20px;
+  color: black;
+  font-weight: 600;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .nutrition-layout {
+    flex-direction: column;
+  }
+}
+
+.nutrition-extra {
+  margin-top: 20px;
+  opacity: 0.85;
+  line-height: 1.7;
+}

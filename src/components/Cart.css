@@ -1,0 +1,10 @@
+.proceed-btn {
+  background: #25d366;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+}

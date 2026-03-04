@@ -1,0 +1,306 @@
+/* =========================
+   CORPORATE DARK NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 1300px;
+
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(18px);
+
+  border-radius: 60px;
+  border: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+
+  transition: all 0.35s ease;
+  z-index: 1000;
+}
+
+/* Shrink effect */
+.navbar.shrink {
+  padding: 10px 30px;
+  width: 88%;
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   MODERN MUSHROOM SYMBOL
+========================= */
+
+.logo-symbol {
+  width: 30px;
+  position: relative;
+}
+
+.cap {
+  width: 30px;
+  height: 18px;
+  background: linear-gradient(180deg, #2563eb, #1e3a8a);
+  border-radius: 50% 50% 8px 8px;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+
+.stem {
+  width: 8px;
+  height: 16px;
+  background: #e2e8f0;
+  margin: auto;
+  border-radius: 4px;
+  margin-top: -2px;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a,
+.dropdown span {
+  color: #e2e8f0;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.nav-links a:hover,
+.dropdown span:hover {
+  color: #ffffff;
+}
+
+/* Subtle underline */
+.nav-links a::after,
+.dropdown span::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background: #2563eb;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after,
+.dropdown span:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+
+  background: #111827;
+  border-radius: 16px;
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
+.whatsapp-btn {
+  padding: 8px 18px;
+  border-radius: 40px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 85px;
+    right: 0;
+    flex-direction: column;
+    background: #0f172a;
+    width: 240px;
+    padding: 25px;
+    transform: translateX(110%);
+    transition: 0.3s;
+    border-radius: 20px;
+  }
+
+  .nav-links.mobile-show {
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* =========================
+   ENTRANCE ANIMATION
+========================= */
+
+.navbar {
+  animation: navbarEnter 0.8s ease forwards;
+  opacity: 0;
+  transform: translate(-50%, -20px);
+}
+
+@keyframes navbarEnter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  height: 32px;
+  width: auto;
+}
+.brand-name {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 65px;
+    padding: 0 18px;
+    border-radius: 40px;
+  }
+
+  .logo-img {
+  height: 40px;     /* controls navbar height */
+  width: auto;
+  object-fit: contain;
+}
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+}

@@ -1,0 +1,174 @@
+/* ================= PAGE ================= */
+.orders-page {
+  min-height: 100vh;
+  padding: 120px 60px;
+  background: #f8fafc;
+  font-family: "Inter", sans-serif;
+  color: #1e293b;
+}
+
+/* ================= HEADER ================= */
+.orders-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.orders-header h1 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.orders-header p {
+  color: #64748b;
+}
+
+/* ================= LIST ================= */
+.orders-list {
+  display: grid;
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+.order-card {
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  transition: 0.3s ease;
+}
+
+.order-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* ================= STATUS BADGES ================= */
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.delivered {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.pending {
+  background: #fef9c3;
+  color: #92400e;
+}
+
+.status.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ================= DETAILS ================= */
+.order-details p {
+  margin: 6px 0;
+  color: #475569;
+}
+
+/* ================= TIMELINE ================= */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.timeline-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.timeline-step.active {
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.timeline-step.active::before {
+  background: #1e3a8a;
+}
+
+/* ================= INVOICE BUTTON ================= */
+.invoice-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  background: #1e3a8a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.invoice-btn:hover {
+  background: #2563eb;
+}
+
+/* ================= ORDER BUTTONS ================= */
+.order-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #dc2626;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cancel-btn:hover {
+  background: #b91c1c;
+}
+
+/* ================= EMPTY STATE ================= */
+.empty-state {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.floating-cart {
+  font-size: 70px;
+  animation: float 3s ease-in-out infinite;
+  color: #1e3a8a;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}

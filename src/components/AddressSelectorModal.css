@@ -1,0 +1,57 @@
+.address-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.address-modal {
+  background: white;
+  width: 420px;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  animation: fadeUp 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  margin-top: 20px;
+}
+
+.modal-address-card {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-address-card:hover {
+  border-color: #fc8019;
+  background: #fff7f0;
+}
+
+.default-badge {
+  margin-left: 10px;
+  background: #fc8019;
+  color: white;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 20px;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(15px); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
+}

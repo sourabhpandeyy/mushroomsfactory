@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Addresses from "./pages/Addresses";
+import Orders from "./pages/Orders";
+import Support from "./pages/Support";
+import Contact from "./pages/Contact";
+import Learn from "./pages/Learn";
+import Explore from "./pages/Explore";
+import AdminOrders from "./pages/AdminOrders";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <div className="app-layout">
+      <Navbar />
+       <main className="page-content">
+      <ScrollToTop />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/addresses" element={<Addresses />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/learn" element={<Learn />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/admin" element={<AdminOrders />} />
+      </Routes>
+</main>
+</div>
+      <Footer />
+    </>
   );
 }
 

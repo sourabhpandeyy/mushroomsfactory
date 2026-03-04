@@ -1,0 +1,318 @@
+/* ================= PAGE ================= */
+
+.address-page {
+  min-height: 100vh;
+  padding: 120px 20px;
+  background: #f4f6f9;
+  font-family: "Inter", sans-serif;
+}
+
+.address-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+/* ================= ADD ADDRESS BUTTON ================= */
+
+.add-new-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  background: linear-gradient(135deg,#ff6b00,#ff8800);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.add-new-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= SLIDE FORM ================= */
+
+.form-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.form-wrapper.open {
+  max-height: 800px;
+  margin-bottom: 30px;
+}
+
+/* ================= INPUT FIELDS ================= */
+
+.form-wrapper input,
+.form-wrapper select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1.5px solid #e5e7eb;
+  background: #f4f4f4;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  transition: all 0.25s ease;
+  margin-bottom: 14px;
+}
+
+/* focus style */
+
+.form-wrapper input:focus,
+.form-wrapper select:focus {
+  border-color: #ff7a00;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(255,122,0,0.15);
+}
+
+/* remove default select arrow */
+
+.form-wrapper select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 18px;
+}
+
+/* ================= MOBILE NUMBER GROUP ================= */
+
+.mobile-field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 14px;
+  border: 1.5px solid #e6e6e6;
+  background: #f4f4f4;
+  overflow: hidden;
+  margin-bottom: 14px;
+  transition: 0.25s ease;
+}
+
+/* highlight on focus */
+
+.mobile-field:focus-within {
+  border-color: #ff7a00;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(255,122,0,0.15);
+}
+
+/* country dropdown */
+
+.country-select {
+  width: 170px;
+  flex-shrink: 0;
+  border: none;
+  border-right: 1px solid #e6e6e6;
+  padding: 14px 16px;
+  font-size: 15px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* mobile number input */
+
+.mobile-field input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 16px;
+  font-size: 15px;
+  outline: none;
+}
+
+.mobile-field input::placeholder {
+  color: #9ca3af;
+}
+
+/* ================= DEFAULT ADDRESS TOGGLE ================= */
+
+.primary-wrapper {
+  margin: 10px 0 18px;
+}
+
+.primary-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+/* hide checkbox */
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* toggle slider */
+
+.toggle-slider {
+  width: 46px;
+  height: 24px;
+  background: #cbd5e1;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2px;
+  top: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-input:checked + .toggle-slider {
+  background: linear-gradient(135deg,#2563eb,#1e40af);
+}
+
+.toggle-input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+}
+
+/* ================= BUTTONS ================= */
+
+.save-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #e5e7eb;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  background: #d1d5db;
+}
+
+/* ================= SAVED ADDRESS CARDS ================= */
+
+.saved-card {
+  background: white;
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.saved-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.saved-card.primary {
+  border: 2px solid #2563eb;
+  background: #eff6ff;
+}
+
+.primary-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #2563eb;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.address-details p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* ================= CARD ACTION BUTTONS ================= */
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  background: #f1f5f9;
+}
+
+.card-actions button:hover {
+  background: #e2e8f0;
+}
+
+.card-actions .delete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.card-actions .delete:hover {
+  background: #fecaca;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+
+  .country-select {
+    width: 140px;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .mobile-field input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+}
