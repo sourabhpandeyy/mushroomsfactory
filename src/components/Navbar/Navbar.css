@@ -1,5 +1,5 @@
 /* =========================
-   GLOBAL FIX
+GLOBAL
 ========================= */
 
 * {
@@ -7,7 +7,7 @@
 }
 
 /* =========================
-   NAVBAR
+NAVBAR
 ========================= */
 
 .navbar {
@@ -16,9 +16,9 @@
   left: 0;
   right: 0;
 
+  margin: auto;
   width: calc(100% - 40px);
   max-width: 1300px;
-  margin: auto;
 
   padding: 16px 40px;
 
@@ -34,67 +34,49 @@
 
   box-shadow: 0 15px 40px rgba(0,0,0,0.35);
 
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
   z-index: 1000;
-
-  animation: navbarEnter 0.6s ease;
 }
 
-/* Shrink on scroll */
+/* Shrink effect */
 
 .navbar.shrink {
-  padding: 10px 30px;
+  padding: 12px 34px;
   top: 12px;
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15,23,42,0.95);
 }
 
 /* =========================
-   NAVBAR ANIMATION
-========================= */
-
-@keyframes navbarEnter {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   LOGO
+LOGO
 ========================= */
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
 }
 
 .logo-img {
   height: 34px;
   width: auto;
-  object-fit: contain;
 }
 
 .brand-name {
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: 1.4px;
-  color: #ffffff;
+  letter-spacing: 1.2px;
+  color: white;
 }
 
 /* =========================
-   NAV LINKS
+NAV LINKS
 ========================= */
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
 }
 
 .nav-links a,
@@ -103,14 +85,13 @@
   text-decoration: none;
   cursor: pointer;
   position: relative;
-  font-weight: 500;
   font-size: 14px;
   transition: 0.3s;
 }
 
 .nav-links a:hover,
 .dropdown span:hover {
-  color: #ffffff;
+  color: white;
 }
 
 /* underline animation */
@@ -119,13 +100,12 @@
 .dropdown span::after {
   content: "";
   position: absolute;
-  width: 0%;
-  height: 2px;
   left: 0;
-  bottom: -6px;
+  bottom: -5px;
+  height: 2px;
+  width: 0%;
   background: #2563eb;
   transition: 0.3s;
-  border-radius: 2px;
 }
 
 .nav-links a:hover::after,
@@ -134,7 +114,7 @@
 }
 
 /* =========================
-   DROPDOWN
+DROPDOWN
 ========================= */
 
 .dropdown {
@@ -143,27 +123,25 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 48px;
+  top: 45px;
   right: 0;
 
   background: #111827;
   border-radius: 14px;
 
-  min-width: 200px;
+  min-width: 190px;
+  padding: 10px 0;
 
   display: flex;
   flex-direction: column;
 
-  padding: 12px 0;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,255,255,0.06);
-
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   pointer-events: none;
 
-  transition: 0.25s ease;
+  transition: 0.25s;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .dropdown-menu.show {
@@ -176,21 +154,19 @@
   padding: 10px 18px;
   color: #cbd5e1;
   font-size: 14px;
-  text-decoration: none;
-  transition: 0.25s;
 }
 
 .dropdown-menu a:hover {
-  background: rgba(255,255,255,0.06);
-  color: #ffffff;
+  background: rgba(255,255,255,0.05);
+  color: white;
 }
 
 /* =========================
-   WHATSAPP BUTTON
+WHATSAPP BUTTON
 ========================= */
 
 .whatsapp-btn {
-  padding: 9px 18px;
+  padding: 8px 18px;
   border-radius: 40px;
   background: #2563eb;
   color: white;
@@ -204,14 +180,14 @@
 }
 
 /* =========================
-   HAMBURGER
+HAMBURGER
 ========================= */
 
 .hamburger {
   display: none;
   flex-direction: column;
-  cursor: pointer;
   gap: 5px;
+  cursor: pointer;
 }
 
 .hamburger span {
@@ -221,8 +197,6 @@
   border-radius: 3px;
   transition: 0.3s;
 }
-
-/* hamburger animation */
 
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
@@ -237,7 +211,7 @@
 }
 
 /* =========================
-   MOBILE MENU
+MOBILE
 ========================= */
 
 @media (max-width: 900px) {
@@ -253,12 +227,10 @@
 
     flex-direction: column;
 
-    background: #0f172a;
-
     width: 240px;
+    padding: 24px;
 
-    padding: 25px;
-
+    background: #0f172a;
     border-radius: 20px;
 
     transform: translateX(110%);
@@ -269,15 +241,11 @@
     transform: translateX(0);
   }
 
-  .navbar {
-    padding: 14px 20px;
-  }
-
   .brand-name {
     font-size: 16px;
   }
 
   .logo-img {
-    height: 30px;
+    height: 28px;
   }
 }
