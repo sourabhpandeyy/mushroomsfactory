@@ -50,6 +50,7 @@ export default function Addresses() {
   /* ================= LOAD ================= */
 
   useEffect(() => {
+
     const saved =
       JSON.parse(localStorage.getItem("userAddresses")) || [];
 
@@ -59,103 +60,122 @@ export default function Addresses() {
     }
 
     setAddresses(saved);
+
   }, []);
 
   /* ================= INPUT ================= */
 
   const handleChange = (e) => {
+
     const { name, value, type, checked } = e.target;
 
     setForm(prev => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value
     }));
+
   };
 
   /* ================= COUNTRY CHANGE ================= */
 
   const handleCountryChange = (e) => {
-    const selected = countries.find(c => c.code === e.target.value);
+
+    const selected = countries.find(
+      c => c.name === e.target.value
+    );
+
+    if (!selected) return;
 
     setForm(prev => ({
       ...prev,
       country: selected.name,
       countryCode: selected.code
     }));
+
   };
 
   /* ================= SAVE ================= */
 
   const saveAddress = () => {
 
-  if (!form.line1 || !form.city || !form.mobile) {
-    alert("Please fill required fields");
-    return;
-  }
+    if (!form.line1 || !form.city || !form.mobile) {
+      alert("Please fill required fields");
+      return;
+    }
 
-  // MOBILE NUMBER VALIDATION
-  if (form.mobile.length < 10) {
-    alert("Enter valid mobile number");
-    return;
-  }
+    if (form.mobile.length < 10) {
+      alert("Enter valid mobile number");
+      return;
+    }
 
-  if (editingIndex === null && addresses.length >= 10) {
-    alert("Maximum 10 addresses allowed");
-    return;
-  }
+    if (editingIndex === null && addresses.length >= 10) {
+      alert("Maximum 10 addresses allowed");
+      return;
+    }
 
-  let updated = [...addresses];
+    let updated = [...addresses];
 
     if (form.isPrimary) {
-      updated = updated.map(a => ({ ...a, isPrimary: false }));
+      updated = updated.map(a => ({
+        ...a,
+        isPrimary: false
+      }));
     }
 
     const finalAddress = {
       ...form,
-    mobile: form.mobile
+      mobile: form.mobile
     };
 
     if (editingIndex !== null) {
       updated[editingIndex] = finalAddress;
     } else {
+
       if (updated.length === 0) {
         finalAddress.isPrimary = true;
       }
+
       updated.push(finalAddress);
     }
 
     setAddresses(updated);
-    localStorage.setItem("userAddresses", JSON.stringify(updated));
+
+    localStorage.setItem(
+      "userAddresses",
+      JSON.stringify(updated)
+    );
 
     setForm(emptyForm);
     setEditingIndex(null);
     setShowForm(false);
+
   };
 
   /* ================= EDIT ================= */
 
   const handleEdit = (index) => {
 
-  const address = addresses[index];
+    const address = addresses[index];
 
-  let mobileNumber = address.mobile;
-  let code = "+91";
+    let mobileNumber = address.mobile;
+    let code = "+91";
 
-  if (mobileNumber.includes(" ")) {
-    const parts = mobileNumber.split(" ");
-    code = parts[0];
-    mobileNumber = parts[1];
-  }
+    if (mobileNumber && mobileNumber.includes(" ")) {
+      const parts = mobileNumber.split(" ");
+      code = parts[0];
+      mobileNumber = parts[1];
+    }
 
-  setForm({
-    ...address,
-    countryCode: code,
-    mobile: mobileNumber
-  });
+    setForm({
+      ...address,
+      countryCode: code,
+      mobile: mobileNumber
+    });
 
-  setEditingIndex(index);
-  setShowForm(true);
-};
+    setEditingIndex(index);
+    setShowForm(true);
+
+  };
 
   /* ================= DELETE ================= */
 
@@ -174,19 +194,30 @@ export default function Addresses() {
     }
 
     setAddresses(updated);
-    localStorage.setItem("userAddresses", JSON.stringify(updated));
+
+    localStorage.setItem(
+      "userAddresses",
+      JSON.stringify(updated)
+    );
+
   };
 
   /* ================= SET PRIMARY ================= */
 
   const setPrimary = (index) => {
+
     const updated = addresses.map((addr, i) => ({
       ...addr,
       isPrimary: i === index
     }));
 
     setAddresses(updated);
-    localStorage.setItem("userAddresses", JSON.stringify(updated));
+
+    localStorage.setItem(
+      "userAddresses",
+      JSON.stringify(updated)
+    );
+
   };
 
   return (
@@ -231,31 +262,17 @@ export default function Addresses() {
           />
 
           <select
-  name="country"
-  className="country-dropdown"
-  value={form.country}
-  onChange={handleChange}
->
-  <option value="India">India</option>
-  <option value="United States">United States</option>
-  <option value="United Kingdom">United Kingdom</option>
-  <option value="Canada">Canada</option>
-  <option value="Australia">Australia</option>
-  <option value="Germany">Germany</option>
-  <option value="France">France</option>
-  <option value="Italy">Italy</option>
-  <option value="Spain">Spain</option>
-  <option value="Netherlands">Netherlands</option>
-  <option value="Brazil">Brazil</option>
-  <option value="Japan">Japan</option>
-  <option value="China">China</option>
-  <option value="South Korea">South Korea</option>
-  <option value="Singapore">Singapore</option>
-  <option value="UAE">UAE</option>
-  <option value="Saudi Arabia">Saudi Arabia</option>
-  <option value="South Africa">South Africa</option>
-  <option value="Mexico">Mexico</option>
-</select>
+            name="country"
+            className="country-dropdown"
+            value={form.country}
+            onChange={handleCountryChange}
+          >
+            {countries.map((c, i) => (
+              <option key={i} value={c.name}>
+                {c.name}
+              </option>
+            ))}
+          </select>
 
           <input
             name="pincode"
@@ -266,34 +283,36 @@ export default function Addresses() {
 
           {/* ===== MOBILE BLOCK ===== */}
 
-        <PhoneInput
-  country={"in"}
-  value={form.mobile}
-  onChange={(phone) =>
-    setForm((prev) => ({
-      ...prev,
-      mobile: phone
-    }))
-  }
-  inputProps={{
-    name: "mobile",
-    required: true
-  }}
-  inputStyle={{
-    width: "100%",
-    height: "52px",
-    borderRadius: "14px",
-    border: "1.5px solid #e5e7eb"
-  }}
-  buttonStyle={{
-    borderRadius: "14px 0 0 14px"
-  }}
-/>
+          <PhoneInput
+            country={"in"}
+            value={form.mobile}
+            onChange={(phone) =>
+              setForm(prev => ({
+                ...prev,
+                mobile: phone
+              }))
+            }
+            inputProps={{
+              name: "mobile",
+              required: true
+            }}
+            inputStyle={{
+              width: "100%",
+              height: "52px",
+              borderRadius: "14px",
+              border: "1.5px solid #e5e7eb"
+            }}
+            buttonStyle={{
+              borderRadius: "14px 0 0 14px"
+            }}
+          />
 
           {/* ===== PRIMARY TOGGLE ===== */}
 
           <div className="primary-wrapper">
+
             <label className="primary-label">
+
               <span>Set as Default Address</span>
 
               <input
@@ -305,11 +324,18 @@ export default function Addresses() {
               />
 
               <span className="toggle-slider"></span>
+
             </label>
+
           </div>
 
-          <button className="save-btn" onClick={saveAddress}>
-            {editingIndex !== null ? "Update Address" : "Save Address"}
+          <button
+            className="save-btn"
+            onClick={saveAddress}
+          >
+            {editingIndex !== null
+              ? "Update Address"
+              : "Save Address"}
           </button>
 
           <button
@@ -326,6 +352,7 @@ export default function Addresses() {
         <div className="saved-section">
 
           {addresses.map((addr, index) => (
+
             <div
               key={index}
               className={`saved-card ${
@@ -340,19 +367,40 @@ export default function Addresses() {
               )}
 
               <div className="address-details">
+
                 <p><strong>{addr.line1}</strong></p>
-                <p>{addr.line2}</p>
-               <p>{addr.city}, {addr.state}, {addr.country} - {addr.pincode}</p>
+
+                {addr.line2 && <p>{addr.line2}</p>}
+
+                <p>
+                  {addr.city}, {addr.state}, {addr.country} - {addr.pincode}
+                </p>
+
                 <p>📞 {addr.mobile}</p>
+
               </div>
 
               <div className="card-actions">
-                <button onClick={() => setPrimary(index)}>Make Primary</button>
-                <button onClick={() => handleEdit(index)}>Edit</button>
-                <button className="delete" onClick={() => handleDelete(index)}>Delete</button>
+
+                <button onClick={() => setPrimary(index)}>
+                  Make Primary
+                </button>
+
+                <button onClick={() => handleEdit(index)}>
+                  Edit
+                </button>
+
+                <button
+                  className="delete"
+                  onClick={() => handleDelete(index)}
+                >
+                  Delete
+                </button>
+
               </div>
 
             </div>
+
           ))}
 
         </div>
