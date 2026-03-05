@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mushroomsfactory/static/css/main.e1defaf8.css",
+    "main.css": "/mushroomsfactory/static/css/main.f4cc5419.css",
     "main.js": "/mushroomsfactory/static/js/main.3ee202a5.js",
     "static/js/239.09e7866f.chunk.js": "/mushroomsfactory/static/js/239.09e7866f.chunk.js",
     "static/js/977.a76ce406.chunk.js": "/mushroomsfactory/static/js/977.a76ce406.chunk.js",
@@ -13,14 +13,14 @@
     "static/media/shiitake.jpg": "/mushroomsfactory/static/media/shiitake.f5681fa7466a5dfcb8b1.jpg",
     "static/media/milky.jpg": "/mushroomsfactory/static/media/milky.bf47103d53763343ee20.jpg",
     "index.html": "/mushroomsfactory/index.html",
-    "main.e1defaf8.css.map": "/mushroomsfactory/static/css/main.e1defaf8.css.map",
+    "main.f4cc5419.css.map": "/mushroomsfactory/static/css/main.f4cc5419.css.map",
     "main.3ee202a5.js.map": "/mushroomsfactory/static/js/main.3ee202a5.js.map",
     "239.09e7866f.chunk.js.map": "/mushroomsfactory/static/js/239.09e7866f.chunk.js.map",
     "977.a76ce406.chunk.js.map": "/mushroomsfactory/static/js/977.a76ce406.chunk.js.map",
     "455.35b206f5.chunk.js.map": "/mushroomsfactory/static/js/455.35b206f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1defaf8.css",
+    "static/css/main.f4cc5419.css",
     "static/js/main.3ee202a5.js"
   ]
 }
