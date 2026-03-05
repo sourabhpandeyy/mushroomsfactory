@@ -1,27 +1,16 @@
 /* =========================
-GLOBAL
-========================= */
-
-* {
-  box-sizing: border-box;
-}
-
-/* =========================
-NAVBAR
+   CORPORATE DARK NAVBAR
 ========================= */
 
 .navbar {
   position: fixed;
   top: 20px;
-  left: 0;
-  right: 0;
-
-  margin: auto;
-  width: calc(100% - 40px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
   max-width: 1300px;
 
   padding: 16px 40px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,49 +23,70 @@ NAVBAR
 
   box-shadow: 0 15px 40px rgba(0,0,0,0.35);
 
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
   z-index: 1000;
 }
 
 /* Shrink effect */
-
 .navbar.shrink {
-  padding: 12px 34px;
-  top: 12px;
-  background: rgba(15,23,42,0.95);
+  padding: 10px 30px;
+  width: 88%;
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
 }
 
 /* =========================
-LOGO
+   LOGO
 ========================= */
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
-}
-
-.logo-img {
-  height: 34px;
-  width: auto;
 }
 
 .brand-name {
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: 1.2px;
-  color: white;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
 /* =========================
-NAV LINKS
+   MODERN MUSHROOM SYMBOL
+========================= */
+
+.logo-symbol {
+  width: 30px;
+  position: relative;
+}
+
+.cap {
+  width: 30px;
+  height: 18px;
+  background: linear-gradient(180deg, #2563eb, #1e3a8a);
+  border-radius: 50% 50% 8px 8px;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+
+.stem {
+  width: 8px;
+  height: 16px;
+  background: #e2e8f0;
+  margin: auto;
+  border-radius: 4px;
+  margin-top: -2px;
+}
+
+/* =========================
+   NAV LINKS
 ========================= */
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 28px;
 }
 
 .nav-links a,
@@ -85,27 +95,28 @@ NAV LINKS
   text-decoration: none;
   cursor: pointer;
   position: relative;
-  font-size: 14px;
   transition: 0.3s;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .nav-links a:hover,
 .dropdown span:hover {
-  color: white;
+  color: #ffffff;
 }
 
-/* underline animation */
-
+/* Subtle underline */
 .nav-links a::after,
 .dropdown span::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -5px;
-  height: 2px;
   width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
   background: #2563eb;
   transition: 0.3s;
+  border-radius: 2px;
 }
 
 .nav-links a:hover::after,
@@ -114,7 +125,7 @@ NAV LINKS
 }
 
 /* =========================
-DROPDOWN
+   DROPDOWN
 ========================= */
 
 .dropdown {
@@ -124,45 +135,38 @@ DROPDOWN
 .dropdown-menu {
   position: absolute;
   top: 45px;
-  right: 0;
+  left: 0;
 
   background: #111827;
-  border-radius: 14px;
-
-  min-width: 190px;
-  padding: 10px 0;
-
-  display: flex;
+  border-radius: 16px;
+  padding: 16px;
+  display: none;
   flex-direction: column;
-
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-
-  transition: 0.25s;
+  gap: 12px;
 
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  animation: fadeIn 0.25s ease forwards;
 }
 
 .dropdown-menu.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  display: flex;
 }
 
 .dropdown-menu a {
-  padding: 10px 18px;
   color: #cbd5e1;
+  text-decoration: none;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 .dropdown-menu a:hover {
-  background: rgba(255,255,255,0.05);
-  color: white;
+  color: #ffffff;
 }
 
 /* =========================
-WHATSAPP BUTTON
+   WHATSAPP BUTTON
 ========================= */
 
 .whatsapp-btn {
@@ -180,14 +184,14 @@ WHATSAPP BUTTON
 }
 
 /* =========================
-HAMBURGER
+   HAMBURGER
 ========================= */
 
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
   cursor: pointer;
+  gap: 5px;
 }
 
 .hamburger span {
@@ -198,20 +202,19 @@ HAMBURGER
   transition: 0.3s;
 }
 
+/* Animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
-
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
 
 /* =========================
-MOBILE
+   MOBILE
 ========================= */
 
 @media (max-width: 900px) {
@@ -224,28 +227,80 @@ MOBILE
     position: absolute;
     top: 85px;
     right: 0;
-
     flex-direction: column;
-
-    width: 240px;
-    padding: 24px;
-
     background: #0f172a;
-    border-radius: 20px;
-
+    width: 240px;
+    padding: 25px;
     transform: translateX(110%);
     transition: 0.3s;
+    border-radius: 20px;
   }
 
   .nav-links.mobile-show {
     transform: translateX(0);
   }
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* =========================
+   ENTRANCE ANIMATION
+========================= */
+
+.navbar {
+  animation: navbarEnter 0.8s ease forwards;
+  opacity: 0;
+  transform: translate(-50%, -20px);
+}
+
+@keyframes navbarEnter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  height: 32px;
+  width: auto;
+}
+.brand-name {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 65px;
+    padding: 0 18px;
+    border-radius: 40px;
+  }
+
+  .logo-img {
+  height: 40px;     /* controls navbar height */
+  width: auto;
+  object-fit: contain;
+}
 
   .brand-name {
     font-size: 16px;
   }
 
-  .logo-img {
-    height: 28px;
-  }
 }
